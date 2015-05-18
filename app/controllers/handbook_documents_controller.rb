@@ -20,35 +20,24 @@ class HandbookDocumentsController < ApplicationController
   def create
     @handbook_document = HandbookDocument.new(handbook_document_params)
 
-    respond_to do |format|
-      if @handbook_document.save
-        format.html { redirect_to @handbook_document, notice: 'Handbook document was successfully created.' }
-        format.json { render :show, status: :created, location: @handbook_document }
-      else
-        format.html { render :new }
-        format.json { render json: @handbook_document.errors, status: :unprocessable_entity }
-      end
+    if @handbook_document.save
+      redirect_to handbook_category_handbook_documents_url(@handbook_category), notice: 'Handbook document was successfully created.'
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @handbook_document.update(handbook_document_params)
-        format.html { redirect_to @handbook_document, notice: 'Handbook document was successfully updated.' }
-        format.json { render :show, status: :ok, location: @handbook_document }
-      else
-        format.html { render :edit }
-        format.json { render json: @handbook_document.errors, status: :unprocessable_entity }
-      end
+    if @handbook_document.update(handbook_document_params)
+      redirect_to handbook_category_handbook_documents_url(@handbook_category), notice: 'Handbook document was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @handbook_document.destroy
-    respond_to do |format|
-      format.html { redirect_to handbook_documents_url, notice: 'Handbook document was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to handbook_category_handbook_documents_url(@handbook_category), notice: 'Handbook document was successfully destroyed.'
   end
 
   private
@@ -60,6 +49,6 @@ class HandbookDocumentsController < ApplicationController
     end
 
     def handbook_document_params
-      params.require(:handbook_document).permit(:title, :category_id, :slug)
+      params.require(:handbook_document).permit(:title, :document)
     end
 end

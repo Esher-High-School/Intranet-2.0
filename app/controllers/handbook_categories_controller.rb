@@ -25,7 +25,7 @@ class HandbookCategoriesController < ApplicationController
     @handbook_category = HandbookCategory.new(handbook_category_params)
 
     if @handbook_category.save
-      redirect_to handbook_categories_url, notice: 'Handbook category was successfully created.'
+      redirect_to '/handbook/cms', notice: 'Handbook category was successfully created.'
     else
       render :new
     end

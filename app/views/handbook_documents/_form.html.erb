@@ -16,6 +16,10 @@
       <%= f.label :title %><br>
       <%= f.text_field :title, :class => 'form-control' %>
     </div>
+    <div class="form-group">
+      <%= f.label :document %><br>
+      <%= f.file_field :document, :class => 'form-control' %>
+    </div>
     <div class="actions">
       <%= f.submit :class => 'btn btn-primary' %>
     </div>
