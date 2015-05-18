@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <% @pages.each do |page| %>
+        <% if !page.parent_id.present? %>
+          <% if page.children.present? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <%= page.title %> <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <% page.children.each do |child| %>
+                  <li>
+                    <%= link_to child.title, child %>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to page.title, page %>
+            </li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</nav>

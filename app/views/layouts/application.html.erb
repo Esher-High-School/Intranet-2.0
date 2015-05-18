@@ -31,19 +31,7 @@
       </div>
     </div>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <ul class="nav navbar-nav">
-          <% @pages.each do |page| %>
-            <% if !page.parent_id.present? %>
-              <li>
-                <%= link_to page.title, page %>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
+    <%= render 'elements/navigation' %>
 
     <div class="container">
 
@@ -54,6 +42,7 @@
     <footer>
       <div class="container">
         <p>
+          EHS Staff Intranet Version <%= @version %><br>
           Copyright &copy; Esher C of E High School <%= Time.now.year %><br>
           <a href="https://github.com/Esher-High-School/Intranet-2.0">Github</a>
         </p>
