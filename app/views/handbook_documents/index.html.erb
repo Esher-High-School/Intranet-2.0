@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Handbook Documents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Slug</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @handbook_documents.each do |handbook_document| %>
+      <tr>
+        <td><%= handbook_document.title %></td>
+        <td><%= handbook_document.category_id %></td>
+        <td><%= handbook_document.slug %></td>
+        <td><%= link_to 'Show', handbook_document %></td>
+        <td><%= link_to 'Edit', edit_handbook_document_path(handbook_document) %></td>
+        <td><%= link_to 'Destroy', handbook_document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Handbook document', new_handbook_document_path %>

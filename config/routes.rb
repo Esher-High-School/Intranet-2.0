@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :handbook_documents
+  resources :handbook_categories
   resources :posts
   get '/' => 'static#index'
   get '/pages' => 'pages#index'

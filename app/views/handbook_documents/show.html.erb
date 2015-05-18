@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @handbook_document.title %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @handbook_document.category_id %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @handbook_document.slug %>
+</p>
+
+<%= link_to 'Edit', edit_handbook_document_path(@handbook_document) %> |
+<%= link_to 'Back', handbook_documents_path %>
