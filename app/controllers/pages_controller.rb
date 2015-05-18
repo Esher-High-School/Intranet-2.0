@@ -10,9 +10,11 @@ class PagesController < ApplicationController
 
   def new
     @page = Page.new
+    @pagesList = Page.where("parent_id IS NULL", @page.slug).order(title: :asc)
   end
 
   def edit
+    @pagesList = Page.where("parent_id IS NULL", @page.slug).order(title: :asc)
   end
 
   def create

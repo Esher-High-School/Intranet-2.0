@@ -14,6 +14,24 @@
     <%= f.text_area :text, :class => "tinymce" %>
     <%= tinymce %>
   </div>
+  <div class="form-group">
+    <select id="page_parent_id" name="page[parent_id]" class="form-control">
+      <option value="">None</option>
+      <% @pagesList.each do |page| %>
+        <% if page.slug != @page.slug %>
+          <% if page.id == @page.parent_id %>
+            <option value="<%= page.id %>" selected>
+              <%= page.title %>
+            </option>
+          <% else %>
+            <option value="<%= page.id %>">
+              <%= page.title %>
+            </option>
+          <% end %>
+        <% end %>
+      <% end %>
+    </select>
+  </div>
   <div class="actions">
     <%= f.submit :class => 'btn btn-primary' %>
   </div>
