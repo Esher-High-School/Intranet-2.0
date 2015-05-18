@@ -1,28 +1,20 @@
 class HandbookDocumentsController < ApplicationController
-  before_action :set_handbook_document, only: [:show, :edit, :update, :destroy]
+  before_action :set_handbook_category, :set_handbook_document, only: [:show, :edit, :update, :destroy]
 
-  # GET /handbook_documents
-  # GET /handbook_documents.json
   def index
     @handbook_documents = HandbookDocument.all
   end
 
-  # GET /handbook_documents/1
-  # GET /handbook_documents/1.json
   def show
   end
 
-  # GET /handbook_documents/new
   def new
     @handbook_document = HandbookDocument.new
   end
 
-  # GET /handbook_documents/1/edit
   def edit
   end
 
-  # POST /handbook_documents
-  # POST /handbook_documents.json
   def create
     @handbook_document = HandbookDocument.new(handbook_document_params)
 
@@ -37,8 +29,6 @@ class HandbookDocumentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /handbook_documents/1
-  # PATCH/PUT /handbook_documents/1.json
   def update
     respond_to do |format|
       if @handbook_document.update(handbook_document_params)
@@ -51,8 +41,6 @@ class HandbookDocumentsController < ApplicationController
     end
   end
 
-  # DELETE /handbook_documents/1
-  # DELETE /handbook_documents/1.json
   def destroy
     @handbook_document.destroy
     respond_to do |format|
@@ -62,12 +50,13 @@ class HandbookDocumentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def set_handbook_category
+      @handbook_category = HandbookCategory.friendly.find(params[:handbook_category_id])
+    end
     def set_handbook_document
-      @handbook_document = HandbookDocument.find(params[:id])
+      @handbook_document = HandbookDocument.friendly.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def handbook_document_params
       params.require(:handbook_document).permit(:title, :category_id, :slug)
     end

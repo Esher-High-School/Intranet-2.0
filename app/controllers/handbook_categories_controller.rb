@@ -32,7 +32,7 @@ class HandbookCategoriesController < ApplicationController
 
   def update
     if @handbook_category.update(handbook_category_params)
-      redirect_to handbook_categories_url, notice: 'Handbook category was successfully updated.'
+      redirect_to '/handbook/cms', notice: 'Handbook category was successfully updated.'
     else
       render :edit
     end
@@ -40,12 +40,12 @@ class HandbookCategoriesController < ApplicationController
 
   def destroy
     @handbook_category.destroy
-    redirect_to handbook_categories_url, notice: 'Handbook category was successfully destroyed.'
+    redirect_to '/handbook/cms', notice: 'Handbook category was successfully destroyed.'
   end
 
   private
     def set_handbook_category
-      @handbook_category = HandbookCategory.find(params[:id])
+      @handbook_category = HandbookCategory.friendly.find(params[:id])
     end
 
     def handbook_category_params

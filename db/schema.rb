@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20150518114508) do
 
   create_table "handbook_documents", force: :cascade do |t|
     t.string   "title"
-    t.integer  "category_id"
+    t.integer  "handbook_category_id"
     t.string   "slug"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "handbook_documents", ["slug"], name: "index_handbook_documents_on_slug", unique: true

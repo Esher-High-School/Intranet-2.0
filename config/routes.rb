@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get '/handbook/cms' => 'handbook_categories#cms_index'
-  resources :handbook_documents
-  resources :handbook_categories, :path => '/handbook'
+  resources :handbook_categories, :path => '/handbook' do
+    resources :handbook_documents, :path => '/documents'
+  end
   resources :posts
   get '/' => 'static#index'
   get '/pages' => 'pages#index'
