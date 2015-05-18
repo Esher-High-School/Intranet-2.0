@@ -10,6 +10,7 @@ class HandbookCategoriesController < ApplicationController
   end
 
   def show
+    @handbook_categories = HandbookCategory.all.order('title ASC')
   end
 
   def new

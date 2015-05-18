@@ -1,0 +1,12 @@
+<ul class="nav nav-tabs">
+  <% @handbook_categories.each do |category| %>
+    <li role="presentation" class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+        <%= category.title %> <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        ...
+      </ul>
+    </li>
+  <% end %>
+</ul>
