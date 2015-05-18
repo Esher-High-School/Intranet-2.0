@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <% if @title.present? %>
-      <title><%= @title %> - EHS Staff Intranet %>
+      <title><%= @title %> - EHS Staff Intranet %></title>
     <% else %>
       <title>EHS Staff Intranet</title>
     <% end %>
@@ -47,6 +47,18 @@
       </div>
     </div>
 
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <% @pages.each do |page| %>
+            <li>
+              <%= link_to page.title, page %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
     <div class="container">
 
       <%= yield %>
@@ -56,7 +68,8 @@
     <footer>
       <div class="container">
         <p>
-          Copyright &copy; Esher C of E High School <%= Time.now.year %>
+          Copyright &copy; Esher C of E High School <%= Time.now.year %><br>
+          <a href="https://github.com/Esher-High-School/Intranet-2.0">Github</a>
         </p>
       </div>
     </footer>
