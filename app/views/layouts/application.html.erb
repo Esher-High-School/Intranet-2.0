@@ -16,11 +16,34 @@
       </div>
     </nav>
 
+    <div class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-1">
+            <%= image_tag 'ehs.png', :alt => "EHS Logo" %>
+          </div>
+          <div class="col-md-11">
+            <span class="title">
+              Esher C of E High School
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
 
       <%= yield %>
 
     </div>
+
+    <footer>
+      <div class="container">
+        <p>
+          Copyright &copy; Esher C of E High School <%= Time.now.year %>
+        </p>
+      </div>
+    </footer>
 
   </body>
 </html>
