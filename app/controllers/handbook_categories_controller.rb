@@ -11,6 +11,7 @@ class HandbookCategoriesController < ApplicationController
 
   def show
     @handbook_categories = HandbookCategory.all.order('title ASC')
+    redirect_to handbook_category_handbook_documents_path(@handbook_category)
   end
 
   def new

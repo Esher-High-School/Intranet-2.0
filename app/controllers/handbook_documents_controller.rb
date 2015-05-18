@@ -2,6 +2,7 @@ class HandbookDocumentsController < ApplicationController
   before_action :set_handbook_category, :set_handbook_document, only: [:show, :edit, :update, :destroy]
 
   def index
+    @handbook_category = HandbookCategory.friendly.find(params[:handbook_category_id])
     @handbook_documents = HandbookDocument.all
   end
 
@@ -9,6 +10,7 @@ class HandbookDocumentsController < ApplicationController
   end
 
   def new
+    @handbook_category = HandbookCategory.friendly.find(params[:handbook_category_id])
     @handbook_document = HandbookDocument.new
   end
 
