@@ -5,6 +5,10 @@ class HandbookCategoriesController < ApplicationController
     @handbook_categories = HandbookCategory.all.order('title ASC')
   end
 
+  def cms_index
+    @handbook_categories = HandbookCategory.all.order('title ASC')
+  end
+
   def show
   end
 
