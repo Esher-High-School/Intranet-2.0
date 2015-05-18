@@ -1,14 +1,9 @@
-<p id="notice"><%= notice %></p>
+<%= render 'elements/notice.html.erb' %>
+
+<h1><%= @post.title %></h1>
+<%= raw(@post.text) %>
 
 <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
 </p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
