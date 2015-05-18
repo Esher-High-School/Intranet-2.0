@@ -35,9 +35,11 @@
       <div class="container">
         <ul class="nav navbar-nav">
           <% @pages.each do |page| %>
-            <li>
-              <%= link_to page.title, page %>
-            </li>
+            <% if !page.parent_id.present? %>
+              <li>
+                <%= link_to page.title, page %>
+              </li>
+            <% end %>
           <% end %>
         </ul>
       </div>

@@ -45,6 +45,6 @@ class PagesController < ApplicationController
       @page = Page.friendly.find(params[:id])
     end
     def page_params
-      params.require(:page).permit(:title, :text)
+      params.require(:page).permit(:title, :text, :parent_id)
     end
 end
