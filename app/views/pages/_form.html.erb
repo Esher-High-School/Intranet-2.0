@@ -1,6 +1,6 @@
 <%= form_for(@page) do |f| %>
   <% if @page.errors.any? %>
-    <div class="alert alert-notice">
+    <div class="alert alert-info">
       <% @page.errors.full_messages.each do |message| %>
         <%= message %><br>
       <% end %>
