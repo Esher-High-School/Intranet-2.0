@@ -16,7 +16,7 @@
         <tr>
           <td><strong><%= link_to page.title, page %></strong></td>
           <td><%= link_to 'Edit', edit_page_path(page) %></td>
-          <td><%= link_to 'Delete', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete', page, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'danger' %></td>
         </tr>
         <% if page.children.present? %>
           <% page.children.each do |child| %>
