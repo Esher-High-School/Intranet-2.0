@@ -1,5 +1,5 @@
 <p>
-  Logged in as <%= (session[:user_id]) %>
+  Logged in as <%= request.env['HTTP_REMOTE_USER'] %>
 </p>
 <div class="page-header">
   <h1>News</h1>
