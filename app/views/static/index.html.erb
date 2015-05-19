@@ -9,9 +9,16 @@
         <p>
           <%= truncate(strip_tags(post.text), :length => 150, :separator => ' ') %>
         </p>
-        <p>
-          <%= link_to 'Read more...', post %>
-        </p>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>
+              <%= link_to 'Read more...', post %>
+            </p>
+          </div>
+          <div class="col-xs-6">
+            <%= post.created_at.strftime("%d %B") %>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
