@@ -1,3 +1,6 @@
-// Place all the styles related to the HandbookDocuments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+iframe.handbook-document {
+  width: 100%;
+  height: 600px;
+  border: 1px #e7e7e7 solid;
+  box-shadow: 0 0 8px 1px rgba(0,0,0,0.1);
+}

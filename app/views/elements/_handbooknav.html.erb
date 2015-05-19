@@ -5,7 +5,12 @@
         <%= category.title %> <span class="caret"></span>
       </a>
       <ul class="dropdown-menu" role="menu">
-        ...
+        <% @documents = HandbookDocument.where(:handbook_category_id == category.id) %>
+        <% @documents.each do |document| %>
+          <li>
+            <%= link_to document.title, [category, document] %>
+          </li>
+        <% end %>
       </ul>
     </li>
   <% end %>

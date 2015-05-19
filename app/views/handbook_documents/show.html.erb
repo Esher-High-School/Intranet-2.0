@@ -1,19 +1,12 @@
-<p id="notice"><%= notice %></p>
+<%= render 'elements/notice' %>
+
+<%= render 'elements/handbooknav' %>
+
+<h1><%= @handbook_document.title %></h1>
+
+<iframe src="<%= @handbook_document.document.url %>" class="handbook-document"></iframe>
 
 <p>
-  <strong>Title:</strong>
-  <%= @handbook_document.title %>
+  <%= link_to 'Edit', edit_handbook_category_handbook_document_path(@handbook_category, @handbook_document) %> |
+  <%= link_to 'Back', handbook_category_handbook_documents_path %>
 </p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @handbook_document.category_id %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @handbook_document.slug %>
-</p>
-
-<%= link_to 'Edit', edit_handbook_document_path(@handbook_document) %> |
-<%= link_to 'Back', handbook_documents_path %>
