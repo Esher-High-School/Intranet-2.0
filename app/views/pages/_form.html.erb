@@ -16,6 +16,7 @@
   </div>
   <% if !@page.children.present? %>
     <div class="form-group">
+      <label>Parent Page (optional)</label>
       <select id="page_parent_id" name="page[parent_id]" class="form-control">
         <option value="">None</option>
         <% @pagesList.each do |page| %>
