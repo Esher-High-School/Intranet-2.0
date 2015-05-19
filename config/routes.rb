@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get '/' => 'static#index'
   get '/pages' => 'pages#index'
   post '/pages' => 'pages#create'
-  resources :pages, :path => '/'
+  resources :pages, :path => '/' do
+    resources :page_attachments, :path => 'attachments'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

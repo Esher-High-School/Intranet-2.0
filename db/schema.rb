@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518122619) do
+ActiveRecord::Schema.define(version: 20150519081733) do
 
   create_table "handbook_categories", force: :cascade do |t|
     t.string   "title"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 20150518122619) do
   end
 
   add_index "handbook_documents", ["slug"], name: "index_handbook_documents_on_slug", unique: true
+
+  create_table "page_attachments", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.integer  "page_id"
+  end
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"

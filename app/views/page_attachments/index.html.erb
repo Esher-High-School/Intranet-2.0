@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Page Attachments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @page_attachments.each do |page_attachment| %>
+      <tr>
+        <td><%= page_attachment.title %></td>
+        <td><%= link_to 'Show', page_attachment %></td>
+        <td><%= link_to 'Edit', edit_page_attachment_path(page_attachment) %></td>
+        <td><%= link_to 'Destroy', page_attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Page attachment', new_page_attachment_path %>
