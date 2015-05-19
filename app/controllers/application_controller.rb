@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
       @pages = Page.all.order('title ASC')
     end
     def get_user
-      @user = request.env['HTTP_REMOTE_USER'] || request.headers['X-Forwarded-User'] || 'unauthenticated'
+      @apacheUser = request.env['HTTP_REMOTE_USER'] || request.headers['X-Forwarded-User']
+      @currentUser = User.friendly.find(@apacheUser)
+      rescue ActiveRecord::RecordNotFound
+        @currentUser = User.new
+        if @apacheUser != nil
+          @currentUser.name = @apacheUser
+        else
+          @currentUser = 'unauthenticated'
+        end
     end
 end
