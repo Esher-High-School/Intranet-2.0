@@ -1,5 +1,5 @@
 <p>
-  Logged in as <%= request.env['HTTP_REMOTE_USER'] %>
+  Logged in as <%= request.headers['X-Forwarded-User'] %>
 </p>
 <div class="page-header">
   <h1>News</h1>
