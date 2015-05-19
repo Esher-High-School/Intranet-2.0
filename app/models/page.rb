@@ -6,7 +6,7 @@ class Page < ActiveRecord::Base
 
   has_many :page_attachments,
          dependent: :destroy
-
+  
   has_many :children, -> { order 'title ASC' },
           class_name: "Page",
           foreign_key: "parent_id",
