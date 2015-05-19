@@ -12,11 +12,22 @@
 
   <tbody>
     <% @pages.each do |page| %>
-      <tr>
-        <td><%= link_to page.title, page %></td>
-        <td><%= link_to 'Edit', edit_page_path(page) %></td>
-        <td><%= link_to 'Delete', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if !page.parent_id.present? %>
+        <tr>
+          <td><strong><%= link_to page.title, page %></strong></td>
+          <td><%= link_to 'Edit', edit_page_path(page) %></td>
+          <td><%= link_to 'Delete', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% if page.children.present? %>
+          <% page.children.each do |child| %>
+            <tr>
+              <td> &#8212; <%= link_to child.title, child %></td>
+              <td><%= link_to 'Edit', edit_page_path(child) %></td>
+              <td><%= link_to 'Delete', child, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
     <% end %>
   </tbody>
 </table>
