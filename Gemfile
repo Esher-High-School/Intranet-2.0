@@ -34,8 +34,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'paperclip'
 
-gem 'mysql2'
-
 gem 'friendly_id'
 
 gem 'bootstrap-sass', '~> 3.3.4'
