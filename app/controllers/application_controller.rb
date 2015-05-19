@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
       @pages = Page.all.order('title ASC')
     end
     def get_user
-      @user = request.env['HTTP_REMOTE_USER']
+      @user = request.env['HTTP_REMOTE_USER'] || request.headers['X-Forwarded-User']
     end
 end
