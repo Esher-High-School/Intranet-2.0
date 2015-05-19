@@ -23,7 +23,7 @@
             <tr>
               <td> &#8212; <%= link_to child.title, child %></td>
               <td><%= link_to 'Edit', edit_page_path(child) %></td>
-              <td><%= link_to 'Delete', child, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Delete', child, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'danger' %></td>
             </tr>
           <% end %>
         <% end %>

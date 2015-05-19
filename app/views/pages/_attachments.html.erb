@@ -13,7 +13,7 @@
           <%= link_to attachment.title, attachment.attachment.url %>
         </td>
         <td><%= link_to 'Edit', edit_page_page_attachment_path(@page, attachment) %></td>
-        <td><%= link_to 'Delete', [@page, attachment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', [@page, attachment], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'danger' %></td>
       </tr>
     <% end %>
   </tbody>
