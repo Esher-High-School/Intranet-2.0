@@ -4,26 +4,20 @@
 
 <%= raw(@page.text) %>
 
-<h2>Attachments</h2>
-<table class="table">
-  <thead>
-    <tr>
-      <th width="80%">Name</th>
-      <th colspan="2"><%= link_to 'New', new_page_page_attachment_path(@page) %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @page.page_attachments.each do |attachment| %>
-      <tr>
-        <td>
-          <%= link_to attachment.title, attachment.attachment.url %>
-        </td>
-        <td><%= link_to 'Edit', edit_page_page_attachment_path(@page, attachment) %></td>
-        <td><%= link_to 'Delete', [@page, attachment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @page.page_attachments.present? %>
+  <%= render 'attachments' %>
+<% end %>
 
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      <%= link_to 'Back', pages_path %>
+    </p>
+  </div>
+  <div class="col-md-6 right">
+    <p>
+      <%= link_to 'Upload Attachment', new_page_page_attachment_path(@page), :class => 'btn btn-default btn-sm' %> &nbsp;
+      <%= link_to 'Edit', edit_page_path(@page), :class => 'btn btn-primary btn-sm' %>
+    </p>
+  </div>
+</div>
