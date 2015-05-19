@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   get '/handbook/cms' => 'handbook_categories#cms_index'
   resources :handbook_categories, :path => '/handbook' do
     resources :handbook_documents, :path => '/documents'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519081733) do
+ActiveRecord::Schema.define(version: 20150519110351) do
 
   create_table "handbook_categories", force: :cascade do |t|
     t.string   "title"
@@ -67,5 +67,16 @@ ActiveRecord::Schema.define(version: 20150519081733) do
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "admin"
+    t.boolean  "publisher"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
 
 end
