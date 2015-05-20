@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action :set_pages, :set_version, :get_user, :publisher_access, only: [:new, :edit, :update, :destroy]
+  before_action :set_pages, :set_version, :get_user, :publisher_access
 
   private
     def set_version
@@ -21,17 +21,17 @@ class ApplicationController < ActionController::Base
         else
           @currentUser = User.new
           @currentUser.name = 'unauthenticated'
-          @currentUser.publisher = false
-          @currentUser.administrator = false
         end
     end
     def publisher_access
       if !@currentUser.publisher?
-        redirect_to '/', notice: 'Access denied - please contact ICT Support if you believe this to be in error'
+        if action_name != 'index' and action_name != 'show'
+          redirect_to '/', notice: 'Access denied - please contact ICT Support if you believe this to be in error'
+        end
       end
     end
     def administrator_access
-      if !@currentUser.administrator?
+      if !@currentUser.admin?
         redirect_to '/', notice: 'Access denied - please contact ICT Support if you believe this to be in error'
       end
     end
