@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :administrator_access, :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.all.order('name ASC')
   end
 
   def new
