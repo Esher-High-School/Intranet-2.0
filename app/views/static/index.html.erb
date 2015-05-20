@@ -7,7 +7,7 @@
       <div class="post">
         <h3><%= link_to post.title, post %></h3>
         <p>
-          <%= truncate(strip_tags(post.text), :length => 150, :separator => ' ') %>
+          <%= truncate(strip_tags(post.text).html_safe, :length => 150, :separator => ' ') %>
         </p>
         <div class="row">
           <div class="col-xs-6">
