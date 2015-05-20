@@ -1,6 +1,6 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-primary">
   <div class="container">
-    <ul class="nav navbar-nav navbar-primary">
+    <ul class="nav navbar-nav">
       <% @pages.each do |page| %>
         <% if !page.parent_id.present? %>
           <% if page.children.present? %>
