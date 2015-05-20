@@ -6,14 +6,15 @@
         <h4 class="modal-title" id="myModalLabel">Upload Attachment</h4>
       </div>
       <%= form_for [@page, @newAttachment] do |f| %>
-        <div class="form-group">
-          <%= f.label :title %><br>
-          <%= f.text_field :title, :class => 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :attachment %>
-          <%= f.file_field :attachment %>
-        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= f.label :title %><br>
+            <%= f.text_field :title, :class => 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :attachment %>
+            <%= f.file_field :attachment %>
+          </div>
         </div>
         <div class="modal-footer">
           <div class="actions">
