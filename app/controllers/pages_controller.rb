@@ -6,6 +6,9 @@ class PagesController < ApplicationController
   end
 
   def show
+    if @page.link.present?
+      redirect_to @page.link
+    end
     @title = @page.title
   end
 
@@ -46,6 +49,6 @@ class PagesController < ApplicationController
       @page = Page.friendly.find(params[:id])
     end
     def page_params
-      params.require(:page).permit(:title, :text, :parent_id)
+      params.require(:page).permit(:title, :text, :parent_id, :link)
     end
 end
