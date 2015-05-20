@@ -1,7 +1,28 @@
-<%= render 'elements/handbooknav' %>
-
 <h1><%= @handbook_category.title %></h1>
 
+<table class="table table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
 
-<%= link_to 'Edit', edit_handbook_category_path(@handbook_category) %> |
-<%= link_to 'Back', handbook_categories_path %>
+  <tbody>
+    <% @handbook_category.handbook_documents.each do |handbook_document| %>
+      <tr>
+        <td><%= link_to handbook_document.title, [@handbook_category, handbook_document] %></td>
+        <td><%= link_to 'Edit', edit_handbook_category_handbook_document_path(@handbook_category, handbook_document) %></td>
+        <td><%= link_to 'Delete', [@handbook_category, handbook_document], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Handbook document', new_handbook_category_handbook_document_path, :class => 'btn btn-default' %>
+
+<p>
+  <%= link_to 'Back', '/handbook/cms' %>
+</p>
