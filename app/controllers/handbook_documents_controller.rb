@@ -19,7 +19,9 @@ class HandbookDocumentsController < ApplicationController
   end
 
   def create
+    @handbook_category = HandbookCategory.friendly.find(params[:handbook_category_id])
     @handbook_document = HandbookDocument.new(handbook_document_params)
+    @handbook_document.handbook_category_id = @handbook_category.id
 
     if @handbook_document.save
       redirect_to handbook_category_handbook_documents_url(@handbook_category), notice: 'Handbook document was successfully created.'
