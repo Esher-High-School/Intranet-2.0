@@ -6,19 +6,6 @@
         <h4 class="modal-title" id="myModalLabel">Upload Attachment</h4>
       </div>
       <%= form_for [@page, @newAttachment] do |f| %>
-        <% if @page_attachment.errors.any? %>
-          <div class="modal-body">
-            <div class="alert alert-danger">
-              <h2><%= pluralize(@page_attachment.errors.count, "error") %> prohibited this page_attachment from being saved:</h2>
-
-              <ul>
-              <% @page_attachment.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
-            </div>
-        <% end %>
-
         <div class="form-group">
           <%= f.label :title %><br>
           <%= f.text_field :title, :class => 'form-control' %>
