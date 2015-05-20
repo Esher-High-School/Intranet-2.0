@@ -26,7 +26,7 @@ class PagesController < ApplicationController
 
     if @page.save
       if @page.link.present?
-        redirect_to pages_url
+        redirect_to pages_url, notice: 'Page was successfully created.'
       else
         redirect_to @page, notice: 'Page was successfully created.'
       end
@@ -38,7 +38,7 @@ class PagesController < ApplicationController
   def update
     if @page.update(page_params)
       if @page.link.present?
-        redirect_to pages_url
+        redirect_to pages_url, notice: 'Page was successfully updated.'
       else
         redirect_to @page, notice: 'Page was successfully updated.'
       end
