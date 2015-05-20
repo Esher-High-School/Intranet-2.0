@@ -7,6 +7,6 @@ class HandbookCategory < ActiveRecord::Base
   end
   order 'title ASC'
   validates :title, presence: true
-  has_many :handbook_documents,
+  has_many :handbook_documents, -> { order 'title ASC' },
          dependent: :destroy
 end

@@ -24,7 +24,7 @@ class HandbookDocumentsController < ApplicationController
     @handbook_document.handbook_category_id = @handbook_category.id
 
     if @handbook_document.save
-      redirect_to handbook_category_handbook_documents_url(@handbook_category), notice: 'Handbook document was successfully created.'
+      redirect_to handbook_category_url(@handbook_category), notice: 'Handbook document was successfully created.'
     else
       render :new
     end
@@ -32,7 +32,7 @@ class HandbookDocumentsController < ApplicationController
 
   def update
     if @handbook_document.update(handbook_document_params)
-      redirect_to handbook_category_handbook_documents_url(@handbook_category), notice: 'Handbook document was successfully updated.'
+      redirect_to handbook_category_url(@handbook_category), notice: 'Handbook document was successfully updated.'
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class HandbookDocumentsController < ApplicationController
 
   def destroy
     @handbook_document.destroy
-    redirect_to handbook_category_handbook_documents_url(@handbook_category), notice: 'Handbook document was successfully destroyed.'
+    redirect_to handbook_category_url(@handbook_category), notice: 'Handbook document was successfully destroyed.'
   end
 
   private
