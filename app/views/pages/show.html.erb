@@ -6,16 +6,21 @@
   <%= render 'attachments' %>
 <% end %>
 
-<div class="row">
-  <div class="col-md-6">
-    <p>
-      <%= link_to 'Back', pages_path %>
-    </p>
+<% if @currentUser.publisher? %>
+  <div class="row">
+    <div class="col-md-6">
+      <p>
+        <%= link_to 'Back', pages_path %>
+      </p>
+    </div>
+    <div class="col-md-6 right">
+      <p>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#uploadAttachment">
+          Upload Attachment
+        </button>
+        &nbsp;
+        <%= link_to 'Edit', edit_page_path(@page), :class => 'btn btn-primary btn-sm' %>
+      </p>
+    </div>
   </div>
-  <div class="col-md-6 right">
-    <p>
-      <%= link_to 'Upload Attachment', new_page_page_attachment_path(@page), :class => 'btn btn-default btn-sm' %> &nbsp;
-      <%= link_to 'Edit', edit_page_path(@page), :class => 'btn btn-primary btn-sm' %>
-    </p>
-  </div>
-</div>
+<% end %>

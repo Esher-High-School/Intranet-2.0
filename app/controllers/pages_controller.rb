@@ -10,6 +10,9 @@ class PagesController < ApplicationController
       redirect_to @page.link
     end
     @title = @page.title
+    if @currentUser.publisher?
+      @newAttachment = PageAttachment.new
+    end
   end
 
   def new
