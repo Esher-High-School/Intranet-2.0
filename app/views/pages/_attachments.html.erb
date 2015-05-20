@@ -3,7 +3,9 @@
   <thead>
     <tr>
       <th width="80%">Name</th>
-      <th colspan="2"><%= link_to 'New', new_page_page_attachment_path(@page) %></th>
+      <% if @currentUser.publisher? %>
+        <th colspan="2"><%= link_to 'New', new_page_page_attachment_path(@page) %></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -12,8 +14,10 @@
         <td>
           <%= link_to attachment.title, attachment.attachment.url %>
         </td>
-        <td><%= link_to 'Edit', edit_page_page_attachment_path(@page, attachment) %></td>
-        <td><%= link_to 'Delete', [@page, attachment], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'danger' %></td>
+        <% if @currentUser.publisher? %>
+          <td><%= link_to 'Edit', edit_page_page_attachment_path(@page, attachment) %></td>
+          <td><%= link_to 'Delete', [@page, attachment], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'danger' %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
