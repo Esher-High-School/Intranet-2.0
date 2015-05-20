@@ -11,6 +11,7 @@ class HandbookCategoriesController < ApplicationController
 
   def show
     @handbook_categories = HandbookCategory.all.order('title ASC')
+    @newDocument = HandbookDocument.new
   end
 
   def new

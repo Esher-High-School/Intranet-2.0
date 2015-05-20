@@ -21,8 +21,11 @@
 
 <br>
 
-<%= link_to 'New Handbook document', new_handbook_category_handbook_document_path(@handbook_category), :class => 'btn btn-default' %>
+<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#uploadDocument">
+  Upload Document
+</button>
 
+<%= render 'modalDocumentUpload' %>
 <p>
   <%= link_to 'Back', '/handbook/cms' %>
 </p>
