@@ -1,5 +1,9 @@
 Intranet 2.0
 ============
-An attempt to rewrite an application I spent months writing by Wednesday.
+So essentially this is the EHS Staff Intranet entirely rewritten in Ruby. The code is infinitely better this time around, but please don't take that to mean that it's perfect.
 
-I cannot possibly think of any reason you'd want to use this, but maybe you would. I really have no idea. It's almost certainly buggy and broken. 
+With that said, it works reasonably well and the application was written within the span of 3 days.
+
+License
+-------
+This software is licensed under the fairly permissive MIT license. 
