@@ -14,7 +14,7 @@ class PageAttachmentsController < ApplicationController
     @page_attachment = PageAttachment.new(page_attachment_params)
     @page_attachment.page_id = @page.id
     if @page_attachment.save
-      redirect_to @page, notice: 'Page attachment was successfully created.'
+      redirect_to @page, notice: 'Attachment was successfully uploaded.'
     else
       render :new
     end
@@ -22,7 +22,7 @@ class PageAttachmentsController < ApplicationController
 
   def update
     if @page_attachment.update(page_attachment_params)
-      redirect_to @page, notice: 'Page attachment was successfully updated.'
+      redirect_to @page, notice: 'Attachment was successfully updated.'
     else
       render :edit
     end
@@ -30,7 +30,7 @@ class PageAttachmentsController < ApplicationController
 
   def destroy
     @page_attachment.destroy
-    redirect_to @page, notice: 'Page attachment was successfully destroyed.'
+    redirect_to @page, notice: 'Attachment was successfully destroyed.'
   end
 
   private
