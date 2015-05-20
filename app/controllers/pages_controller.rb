@@ -2,9 +2,7 @@ class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
   def index
-    if !@currentUser.publisher?
-      redirect_to '/'
-    end
+
   end
 
   def show

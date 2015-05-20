@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action :set_pages, :set_version, :get_user
+  before_action :set_pages, :set_version, :get_user, :check_publisher, only: [:index, :new, :edit, :update, :destroy]
 
   private
     def set_version
@@ -19,7 +19,13 @@ class ApplicationController < ActionController::Base
         if @apacheUser != nil
           @currentUser.name = @apacheUser
         else
-          @currentUser = 'unauthenticated'
+          @currentUser = User.new
+          @currentUser.name = 'unauthenticated'
         end
+    end
+    def check_publisher
+      if !@currentUser.publisher?
+        redirect_to '/'
+      end
     end
 end
